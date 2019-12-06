@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public void PlayButton()
     {
         SceneManager.LoadScene("GameScene");
+=======
+    [SerializeField] private Scene gameField;
+
+    public void PlayButton()
+    {
+        SceneManager.LoadScene("Scenes/SampleScene");
+>>>>>>> Stashed changes
     }
 }
