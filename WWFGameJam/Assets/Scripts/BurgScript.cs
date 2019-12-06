@@ -33,9 +33,8 @@ public class BurgScript : MonoBehaviour
         {
             health -= 25;
             enemy.WalkForward = false;
-            enemy.
+            enemy.GotStick();
         }
         
     }
-
 }

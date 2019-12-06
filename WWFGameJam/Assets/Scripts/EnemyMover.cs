@@ -16,12 +16,17 @@ public class EnemyMover : MonoBehaviour
 
     private Vector3 startposition;
 
+    public bool StealStick = false;
+
+    [SerializeField] private GameObject stick;
+    
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = player.transform.position;
         startposition = transform.position;
+        stick.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,7 +42,12 @@ public class EnemyMover : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, startposition, currentSpeed);
         }
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed);
-        
+        Debug.Log(StealStick);
     }
 
+    public void GotStick()
+    {
+        stick.gameObject.SetActive(true);
+    }
+   
 }
