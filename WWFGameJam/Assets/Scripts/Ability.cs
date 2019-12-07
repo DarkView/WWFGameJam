@@ -44,6 +44,7 @@ public class Ability : MonoBehaviour
     public void AbilityButtonActivation()
     {
         StartCoroutine(AbilityActive());
+        GameObject.Find("Nagen").GetComponent<AudioSource>().Play();
     }
 
     IEnumerator AbilityActive()
