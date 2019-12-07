@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     {
         MoveProjectile();
 
-        
+
     }
     /// <summary>
     /// Bewegt dass Projectile nach vorne wenn die entfernung zum shootPoint zu groß wird zerstört sich das geschoss
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-   
+
 
     private void OnTriggerEnter(Collider other)
     {
