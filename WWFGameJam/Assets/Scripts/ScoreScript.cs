@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
@@ -9,6 +10,11 @@ public class ScoreScript : MonoBehaviour
 
     [SerializeField]
     private Text score;
+
+    private void Start()
+    {
+        Highscore = PlayerPrefs.GetInt("HighScoreKey", 0);
+    }
 
     // Update is called once per frame
     public void EnemyHit(int addedScore)
