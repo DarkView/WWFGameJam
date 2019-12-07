@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     {
         lastShotDelay += Time.deltaTime;
     }
+
     //Sorgt für den Delay den man beim schießen hat aka wie schnell man schießen kann
     public void Shoot()
     {
