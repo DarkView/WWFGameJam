@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
 
     [SerializeField]
-    float firingSpeed = 20;
+    float firingSpeed = 1f;
 
     public static Weapon Instance;
 

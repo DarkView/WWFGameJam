@@ -43,8 +43,8 @@ public class BurgScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             health -= 25;
-            enemy.WalkForward = false;
-            enemy.GotStick();
+            other.gameObject.GetComponent<EnemyMover>().WalkForward = false;
+            other.gameObject.GetComponent<EnemyMover>().GotStick();
         }
     }
 }

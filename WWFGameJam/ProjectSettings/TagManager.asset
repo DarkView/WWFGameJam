@@ -8,6 +8,7 @@ TagManager:
   - Burg
   - Stick
   - Projectile
+  - Spawn
   layers:
   - Default
   - TransparentFX
