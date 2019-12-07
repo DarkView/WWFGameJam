@@ -23,8 +23,8 @@ public class Weapon : MonoBehaviour
     {
         if (lastShotDelay >= FiringDelay)
         {
-            Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
             GameObject.Find("Schuss").GetComponent<AudioSource>().Play();
+            Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
             lastShotDelay = 0f;
         }
         
