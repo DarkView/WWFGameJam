@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    private PlayerController player;
     [SerializeField]
     private float Speed = 4f;
 
@@ -28,8 +27,7 @@ public class EnemyMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        target = player.transform.position;
+        target = GameObject.Find("Burg").transform.position;
         startposition = transform.position;
         stick.gameObject.SetActive(false);
     }

@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             spwAreas = spawnAreas[UnityEngine.Random.Range(0, spawnAreas.Length)].transform.position;
 
             Vector2 rdmPos = UnityEngine.Random.insideUnitCircle * 0.5f;
-            Vector3 spwPos = new Vector3(rdmPos.x + spwAreas.x, 1.36f, rdmPos.y + spwAreas.z);
+            Vector3 spwPos = new Vector3(rdmPos.x + spwAreas.x, 2.5f, rdmPos.y + spwAreas.z);
 
             Instantiate(enemyPrefab, spwPos, enemyPrefab.transform.rotation);
 

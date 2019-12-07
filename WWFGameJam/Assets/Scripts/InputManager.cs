@@ -1,17 +1,21 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ARRotationManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
 
-    public GameObject TestObject;
+    public GameObject BiberGameObject;
 
     private Gyroscope gyro;
 
     void Update()
     {
         //TestObject.transform.rotation = gyro.attitude * rot;
-        TestObject.transform.rotation = Quaternion.Euler(0, gyro.attitude.z * 180, 0).normalized;
+        BiberGameObject.transform.rotation = Quaternion.Euler(90, gyro.attitude.z * -180, 0);
+
+        if (Input.touchCount > 0)
+        {
+            GameObject.Find("Weapon").GetComponent<Weapon>().Shoot();
+        }
     }
 
     private void Start()
