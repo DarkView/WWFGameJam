@@ -7,8 +7,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float projectileSpeed = 20.0f;
 
-    [SerializeField]
-    private float maxProjectileDistance = 10.0f;
+    public float MaxProjectileDistance = 10.0f;
+
+    public bool BeaverFever = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class Projectile : MonoBehaviour
     /// </summary>
     void MoveProjectile()
     {
-        if (Vector3.Distance(shootPoint, transform.position) > maxProjectileDistance)
+        if (Vector3.Distance(shootPoint, transform.position) > MaxProjectileDistance)
         {
             Destroy(this.gameObject);
         }
@@ -40,6 +41,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (!BeaverFever)
+        {
+            Destroy(gameObject);
+        }
     }
 }

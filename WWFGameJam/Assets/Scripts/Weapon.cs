@@ -7,8 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private Transform ShootPoint;
 
-    [SerializeField]
-    private float firingSpeed = 0.75f;
+    public float FiringDelay = 0.75f;
 
     private float lastShotDelay = 0f;
 
@@ -19,7 +18,7 @@ public class Weapon : MonoBehaviour
     //Sorgt für den Delay den man beim schießen hat aka wie schnell man schießen kann
     public void Shoot()
     {
-        if (lastShotDelay >= firingSpeed)
+        if (lastShotDelay >= FiringDelay)
         {
             Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
             lastShotDelay = 0f;
