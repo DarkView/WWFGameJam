@@ -1,24 +1,29 @@
-﻿using System;
+﻿
 using UnityEngine;
 
 public class ARRotationManager : MonoBehaviour
 {
 
     public GameObject TestObject;
-    public Transform ARObject;
 
-    private Quaternion previousRotation;
-    private Quaternion trota;
+    private Gyroscope gyro;
 
     void Update()
     {
-        TestObject.transform.SetPositionAndRotation(TestObject.transform.position, new Quaternion(trota.x, trota.y, ARObject.transform.rotation.y, trota.w));
-        previousRotation = ARObject.rotation;
+        //TestObject.transform.rotation = gyro.attitude * rot;
+        TestObject.transform.rotation = Quaternion.Euler(0, gyro.attitude.z * 180, 0).normalized;
     }
 
     private void Start()
     {
-        trota = TestObject.transform.rotation;
-        previousRotation = ARObject.rotation;
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyro = Input.gyro;
+            gyro.enabled = true;
+        }
+        else
+        {
+            //Application.Quit(0);
+        }
     }
 }

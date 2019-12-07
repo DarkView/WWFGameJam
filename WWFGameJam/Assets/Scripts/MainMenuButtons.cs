@@ -5,6 +5,6 @@ public class MainMenuButtons : MonoBehaviour
 {
     public void PlayButton()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadSceneAsync("GameScene");
     }
 }
