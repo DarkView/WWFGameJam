@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
@@ -15,21 +13,15 @@ public class EnemyMover : MonoBehaviour
 
     private Vector3 startposition;
 
-    public bool StealStick = false;
+    public bool StoleStick = false;
 
     private bool gotHit = false;
 
-    [SerializeField] private GameObject stick;
-
-    [SerializeField]
-    private float health = 20f;
-    
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Burg").transform.position;
         startposition = transform.position;
-        stick.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,27 +47,30 @@ public class EnemyMover : MonoBehaviour
 
     public void GotStick()
     {
-        stick.gameObject.SetActive(true);
-        StealStick = true;
+        StoleStick = true;
+        gameObject.GetComponentInChildren<Animator>().SetBool("StoleStick", true);
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile") && !gotHit)
         {
             WalkForward = false;
-            if (StealStick && !gotHit)
+            if (StoleStick)
             {
-                stick.gameObject.SetActive(false);
                 GameObject.Find("Burg").GetComponent<BurgScript>().Health += 25;
-                GameObject.Find("Score").GetComponent<ScoreScript>().Score += 5;
-                StealStick = false;
+                GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
+                StoleStick = false;
+                gameObject.GetComponentInChildren<Animator>().SetBool("StoleStick", false);
             }
             else
             {
-                GameObject.Find("Score").GetComponent<ScoreScript>().Score += 10;
+                GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
+                GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
             }
             gotHit = true;
+            currentSpeed *= 2;
+            gameObject.GetComponentInChildren<Animator>().SetBool("SpatOn", true);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -11,9 +9,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField]
     private float maxProjectileDistance = 10.0f;
-
-    [SerializeField]
-    private float damage = 20.0f;
 
     // Start is called before the first frame update
     void Start()
