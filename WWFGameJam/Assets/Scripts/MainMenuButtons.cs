@@ -6,15 +6,21 @@ using  UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    [SerializeField] private Text highscore;
+    private int gamesPlayed;
+
+    private void Start()
+    {
+        gamesPlayed = PlayerPrefs.GetInt("GamesPlayedKey", 0);
+    }
 
     public void PlayButton()
     {
         SceneManager.LoadSceneAsync("GameScene");
+        PlayerPrefs.SetInt("GamesPlayedKey",gamesPlayed++);
     }
 
-    private void Start()
+    public void HighscoreButton()
     {
-        highscore.text = PlayerPrefs.GetInt("HighScoreKey", 0).ToString();
+        SceneManager.LoadSceneAsync("HighScoreScene");
     }
 }

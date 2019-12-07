@@ -17,11 +17,17 @@ public class EnemyMover : MonoBehaviour
 
     private bool gotHit = false;
 
+    private int killWithoutStick;
+
+    private int killWithStick;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Burg").transform.position;
         startposition = transform.position;
+        killWithoutStick = PlayerPrefs.GetInt("KillWithoutStickKey", 0);
+        killWithStick = PlayerPrefs.GetInt("KillWithStickKey", 0);
     }
 
     // Update is called once per frame
@@ -63,11 +69,13 @@ public class EnemyMover : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
                 StoleStick = false;
                 gameObject.GetComponentInChildren<Animator>().SetBool("StoleStick", false);
+                PlayerPrefs.SetInt("KillWithStickKey",killWithStick++);
             }
             else
             {
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
+                PlayerPrefs.SetInt("KillWithoutStickKey", killWithoutStick++);
             }
             gotHit = true;
             currentSpeed *= 2;
