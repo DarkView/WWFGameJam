@@ -36,7 +36,7 @@ public class EnemyMover : MonoBehaviour
     void Update()
     {
         currentSpeed = Speed * Time.deltaTime;
-        if(WalkForward == true)
+        if(WalkForward)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, currentSpeed);
         }
@@ -45,6 +45,10 @@ public class EnemyMover : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, startposition, currentSpeed);
         }
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed);
+        if (!WalkForward && startposition == transform.position)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void GotStick()

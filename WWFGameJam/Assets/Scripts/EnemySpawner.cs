@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 spwAreas;
 
-    public float delay = 1.5f;
+    public float delay = 5;
 
     // Start is called before the first frame update
     void Start()

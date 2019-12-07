@@ -26,5 +26,10 @@ public class ScoreScript : MonoBehaviour
             Highscore = Score;
             PlayerPrefs.SetInt("HighScoreKey", Highscore);
         }
+
+        if (Score % 100 == 0)
+        {
+            GameObject.Find("Spawner").GetComponent<EnemySpawner>().delay -= 0.5f;
+        }
     }
 }
