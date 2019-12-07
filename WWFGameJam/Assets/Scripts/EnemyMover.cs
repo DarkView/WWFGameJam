@@ -59,6 +59,7 @@ public class EnemyMover : MonoBehaviour
             if (StoleStick)
             {
                 GameObject.Find("Burg").GetComponent<BurgScript>().Health += 25;
+                GameObject.Find("Burg").GetComponent<BurgScript>().BurgHealthReceived();
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
                 StoleStick = false;
                 gameObject.GetComponentInChildren<Animator>().SetBool("StoleStick", false);

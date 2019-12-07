@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class BurgScript : MonoBehaviour
@@ -10,6 +8,11 @@ public class BurgScript : MonoBehaviour
     private EnemyMover enemy;
 
     public Slider HealthBar;
+
+    [SerializeField] private GameObject stage1;
+    [SerializeField] private GameObject stage2;
+    [SerializeField] private GameObject stage3;
+
 
 
     // Start is called before the first frame update
@@ -24,7 +27,6 @@ public class BurgScript : MonoBehaviour
     void Update()
     {
         HealthBar.value = Health;
-        BurgDamage();
     }
 
     /* private void OnCollisionEnter(Collision collision)
@@ -45,29 +47,45 @@ public class BurgScript : MonoBehaviour
             Health -= 25;
             other.gameObject.GetComponent<EnemyMover>().WalkForward = false;
             other.gameObject.GetComponent<EnemyMover>().GotStick();
+            BurgDamageTaken();
         }
     }
 
-    private void BurgDamage()
+    public void BurgDamageTaken()
     {
 
         switch (Health)
         {
-            case 25:
-                GameObject.Find("Stage3").SetActive(false);
-                break;
-
-            case 50:
-                GameObject.Find("Stage2").SetActive(false);
-                break;
-
-            case 75: GameObject.Find("Stage1").SetActive(false);
-                break;
             case 0:
+                stage3.SetActive(false);
+                break;
+
+            case 25:
+                stage2.SetActive(false);
+                break;
+
+            case 50: 
+                stage1.SetActive(false);
                 break;
             default:
                 break;
         }
 
+    }
+
+    public void BurgHealthReceived()
+    {
+        switch (Health)
+        {
+            case 50:
+                stage2.SetActive(true);
+                break;
+
+            case 75:
+                stage1.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
 }
