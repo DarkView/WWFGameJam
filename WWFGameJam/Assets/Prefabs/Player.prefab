@@ -97,6 +97,7 @@ MonoBehaviour:
     type: 3}
   ShootPoint: {fileID: 333159869963463816}
   firingSpeed: 1
+  BeaverFever: 0
 --- !u!1 &333159869171294094
 GameObject:
   m_ObjectHideFlags: 0

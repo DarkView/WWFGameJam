@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BurgScript : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class BurgScript : MonoBehaviour
     [SerializeField] private GameObject stage1;
     [SerializeField] private GameObject stage2;
     [SerializeField] private GameObject stage3;
+    [SerializeField] private GameObject deathAnim;
+    private float delay;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +63,9 @@ public class BurgScript : MonoBehaviour
         {
             case 0:
                 stage3.SetActive(false);
+                GameObject.Find("biber").GetComponent<Renderer>().enabled = false;
+                deathAnim.SetActive(true);
+                StartCoroutine(GameOver());
                 break;
 
             case 25:
@@ -89,4 +96,31 @@ public class BurgScript : MonoBehaviour
                 break;
         }
     }
+
+    private void BurgRegeneration()
+    {
+
+        switch (Health)
+        {
+            case 50:
+                GameObject.Find("Stage2").SetActive(true);
+                break;
+
+            case 75:
+                GameObject.Find("Stage1").SetActive(true);
+                break;
+
+            default:
+                break;
+        }
+
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadSceneAsync("DefeatScreen");
+    }
+    
+
 }

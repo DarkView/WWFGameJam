@@ -11,9 +11,15 @@ public class Weapon : MonoBehaviour
 
     private float lastShotDelay = 0f;
 
+    public bool BeaverFever = false;
+
     void Update()
     {
         lastShotDelay += Time.deltaTime;
+        if(BeaverFever == true)
+        {
+            firingSpeed = 0.5f;
+        }
     }
     //Sorgt für den Delay den man beim schießen hat aka wie schnell man schießen kann
     public void Shoot()

@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     public float MaxProjectileDistance = 10.0f;
 
-    public bool BeaverFever = false;
+    private float delay = 60f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,8 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         MoveProjectile();
+
+        
     }
     /// <summary>
     /// Bewegt dass Projectile nach vorne wenn die entfernung zum shootPoint zu groß wird zerstört sich das geschoss
@@ -38,6 +40,8 @@ public class Projectile : MonoBehaviour
         }
 
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
