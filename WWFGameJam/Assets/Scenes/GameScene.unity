@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 61503277}
   - component: {fileID: 61503276}
   m_Layer: 0
-  m_Name: Map Skizze
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 43adf95ec8f3f2545ae10c3e66f517d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc714c65f6a1ec4498cd7fca3c589935, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1594,7 +1594,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 992729197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1103736317}
+        m_MethodName: AbilityButtonActivation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &992729197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,6 +1814,7 @@ GameObject:
   - component: {fileID: 1103736314}
   - component: {fileID: 1103736315}
   - component: {fileID: 1103736316}
+  - component: {fileID: 1103736317}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1850,6 +1862,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1542671764}
+--- !u!114 &1103736317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103736313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ae4765d8faf054a8f406a1f53a51f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityButton: {fileID: 992729194}
+  CooldownButton: {fileID: 11319643}
+  CooldownImage: {fileID: 11319646}
 --- !u!1 &1111079063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3118413041283221612, guid: 101d251c0e3c13e4e848abc4c7697db8,

@@ -46,11 +46,11 @@ public class Ability : MonoBehaviour
     {
         coolingDown = true;
         GameObject.Find("Weapon").GetComponent<Weapon>().FiringDelay /= 2;
-        GameObject.Find("Projectile").GetComponent<Projectile>().MaxProjectileDistance *= 2;
-        GameObject.Find("Projectile").GetComponent<Projectile>().BeaverFever = true;
+        GameObject.Find("Projectile1").GetComponent<Projectile>().MaxProjectileDistance *= 2;
+        GameObject.Find("Projectile1").GetComponent<Projectile>().BeaverFever = true;
         yield return new WaitForSeconds(10);
         GameObject.Find("Weapon").GetComponent<Weapon>().FiringDelay *= 2;
-        GameObject.Find("Projectile").GetComponent<Projectile>().MaxProjectileDistance /= 2;
-        GameObject.Find("Projectile").GetComponent<Projectile>().BeaverFever = false;
+        GameObject.Find("Projectile1").GetComponent<Projectile>().MaxProjectileDistance /= 2;
+        GameObject.Find("Projectile1").GetComponent<Projectile>().BeaverFever = false;
     }
 }
