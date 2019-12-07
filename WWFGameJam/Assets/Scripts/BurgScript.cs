@@ -27,7 +27,7 @@ public class BurgScript : MonoBehaviour
         HealthBar.value = health;
     }
 
-    private void OnCollisionEnter(Collision collision)
+   /* private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Enemy"))
         {
@@ -36,5 +36,15 @@ public class BurgScript : MonoBehaviour
             enemy.GotStick();
         }
         
+    } */
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            health -= 25;
+            enemy.WalkForward = false;
+            enemy.GotStick();
+        }
     }
 }

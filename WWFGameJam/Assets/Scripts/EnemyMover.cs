@@ -19,6 +19,9 @@ public class EnemyMover : MonoBehaviour
     public bool StealStick = false;
 
     [SerializeField] private GameObject stick;
+
+    [SerializeField]
+    private float health = 20f;
     
     // Start is called before the first frame update
     void Start()
@@ -42,12 +45,18 @@ public class EnemyMover : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, startposition, currentSpeed);
         }
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed);
-        Debug.Log(StealStick);
     }
 
     public void GotStick()
     {
         stick.gameObject.SetActive(true);
     }
-   
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            WalkForward = false;
+        }
+    }
 }
