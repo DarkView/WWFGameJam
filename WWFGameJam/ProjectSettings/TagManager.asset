@@ -9,6 +9,9 @@ TagManager:
   - Stick
   - Projectile
   - Spawn
+  - CloseWarning
+  - FarWarning
+  - WarnManager
   layers:
   - Default
   - TransparentFX

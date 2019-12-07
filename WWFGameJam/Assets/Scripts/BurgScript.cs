@@ -13,8 +13,6 @@ public class BurgScript : MonoBehaviour
     [SerializeField] private GameObject stage2;
     [SerializeField] private GameObject stage3;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +46,9 @@ public class BurgScript : MonoBehaviour
             other.gameObject.GetComponent<EnemyMover>().WalkForward = false;
             other.gameObject.GetComponent<EnemyMover>().GotStick();
             BurgDamageTaken();
+
+            WarningManager warn = WarningManager.FindClosestWarningManager(other.transform.position);
+            warn.StartCoroutine(warn.ColorWarnObjects("damage"));
         }
     }
 

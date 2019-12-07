@@ -72,6 +72,16 @@ public class EnemyMover : MonoBehaviour
             gotHit = true;
             currentSpeed *= 2;
             gameObject.GetComponentInChildren<Animator>().SetBool("SpatOn", true);
+        } 
+        else if (other.CompareTag("CloseWarning"))
+        {
+            WarningManager warn = WarningManager.FindClosestWarningManager(gameObject.transform.position);
+            warn.StartCoroutine(warn.ColorWarnObjects("close"));
+        } 
+        else if (other.CompareTag("FarWarning"))
+        {
+            WarningManager warn = WarningManager.FindClosestWarningManager(gameObject.transform.position);
+            warn.StartCoroutine(warn.ColorWarnObjects("far"));
         }
     }
 }
