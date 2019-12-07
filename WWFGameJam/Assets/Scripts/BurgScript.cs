@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class BurgScript : MonoBehaviour
 {
-    [SerializeField]
-    private int health = 100;
+    public int Health;
 
     private EnemyMover enemy;
 
@@ -18,13 +17,13 @@ public class BurgScript : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyMover>();
         enemy.WalkForward = true;
-        health = 100;
+        Health = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        HealthBar.value = health;
+        HealthBar.value = Health;
     }
 
    /* private void OnCollisionEnter(Collision collision)
@@ -42,7 +41,7 @@ public class BurgScript : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            health -= 25;
+            Health -= 25;
             other.gameObject.GetComponent<EnemyMover>().WalkForward = false;
             other.gameObject.GetComponent<EnemyMover>().GotStick();
         }

@@ -18,6 +18,8 @@ public class EnemyMover : MonoBehaviour
 
     public bool StealStick = false;
 
+    private bool gotHit = false;
+
     [SerializeField] private GameObject stick;
 
     [SerializeField]
@@ -50,6 +52,7 @@ public class EnemyMover : MonoBehaviour
     public void GotStick()
     {
         stick.gameObject.SetActive(true);
+        StealStick = true;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -57,6 +60,18 @@ public class EnemyMover : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             WalkForward = false;
+            if (StealStick && !gotHit)
+            {
+                stick.gameObject.SetActive(false);
+                GameObject.Find("Burg").GetComponent<BurgScript>().Health += 25;
+                GameObject.Find("Score").GetComponent<ScoreScript>().Score += 5;
+                StealStick = false;
+            }
+            else
+            {
+                GameObject.Find("Score").GetComponent<ScoreScript>().Score += 10;
+            }
+            gotHit = true;
         }
     }
 }

@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
         PlayerLookAtMouse();
         HandleShootInput();
 
+        mainCamera.transform.position = GameObject.Find("CamHolder").transform.position;
+        mainCamera.transform.rotation = GameObject.Find("CamHolder").transform.rotation;
+
+
     }
     void PlayerLookAtMouse()
     {
@@ -42,9 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            Weapon.Instance.Shoot();
             GameObject.Find("Weapon").GetComponent<Weapon>().Shoot();
-            Debug.Log("hi");
         }
     }
 
