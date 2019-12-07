@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2240721d4176af94a894e6b08af82b13
+  - enabled: 1
+    path: Assets/Scenes/DefeatScreen.unity
+    guid: 7598eb9067b02b345aeda1013334ed5a
   m_configObjects: {}
