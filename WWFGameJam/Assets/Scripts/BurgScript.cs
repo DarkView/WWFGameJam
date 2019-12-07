@@ -24,18 +24,19 @@ public class BurgScript : MonoBehaviour
     void Update()
     {
         HealthBar.value = Health;
+        BurgDamage();
     }
 
-   /* private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            health -= 25;
-            enemy.WalkForward = false;
-            enemy.GotStick();
-        }
-        
-    } */
+    /* private void OnCollisionEnter(Collision collision)
+     {
+         if (collision.collider.CompareTag("Enemy"))
+         {
+             health -= 25;
+             enemy.WalkForward = false;
+             enemy.GotStick();
+         }
+
+     } */
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,5 +46,28 @@ public class BurgScript : MonoBehaviour
             other.gameObject.GetComponent<EnemyMover>().WalkForward = false;
             other.gameObject.GetComponent<EnemyMover>().GotStick();
         }
+    }
+
+    private void BurgDamage()
+    {
+
+        switch (Health)
+        {
+            case 25:
+                GameObject.Find("Stage3").SetActive(false);
+                break;
+
+            case 50:
+                GameObject.Find("Stage2").SetActive(false);
+                break;
+
+            case 75: GameObject.Find("Stage1").SetActive(false);
+                break;
+            case 0:
+                break;
+            default:
+                break;
+        }
+
     }
 }
