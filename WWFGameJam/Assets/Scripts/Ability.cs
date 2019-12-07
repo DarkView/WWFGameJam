@@ -11,12 +11,16 @@ public class Ability : MonoBehaviour
     [SerializeField] private Image CooldownImage;
     private bool coolingDown;
     private float cooldownTime;
+    public float MaxProjectileDistance;
+    public bool BeaverFever;
 
     // Start is called before the first frame update
     void Start()
     {
         coolingDown = true;
         cooldownTime = 30f;
+        MaxProjectileDistance = 20f;
+        BeaverFever = false;
     }
 
     // Update is called once per frame
@@ -46,11 +50,11 @@ public class Ability : MonoBehaviour
     {
         coolingDown = true;
         GameObject.Find("Weapon").GetComponent<Weapon>().FiringDelay /= 2;
-        GameObject.Find("Projectile1").GetComponent<Projectile>().MaxProjectileDistance *= 2;
-        GameObject.Find("Projectile1").GetComponent<Projectile>().BeaverFever = true;
+        MaxProjectileDistance *= 2;
+        BeaverFever = true;
         yield return new WaitForSeconds(10);
         GameObject.Find("Weapon").GetComponent<Weapon>().FiringDelay *= 2;
-        GameObject.Find("Projectile1").GetComponent<Projectile>().MaxProjectileDistance /= 2;
-        GameObject.Find("Projectile1").GetComponent<Projectile>().BeaverFever = false;
+        MaxProjectileDistance /= 2;
+        BeaverFever = false;
     }
 }

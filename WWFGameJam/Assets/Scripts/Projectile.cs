@@ -7,10 +7,6 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float projectileSpeed = 20.0f;
 
-    public float MaxProjectileDistance = 10.0f;
-
-    private float delay = 60f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +26,7 @@ public class Projectile : MonoBehaviour
     /// </summary>
     void MoveProjectile()
     {
-        if (Vector3.Distance(shootPoint, transform.position) > MaxProjectileDistance)
+        if (Vector3.Distance(shootPoint, transform.position) > GameObject.Find("GameManager").GetComponent<Ability>().MaxProjectileDistance)
         {
             Destroy(this.gameObject);
         }
@@ -45,7 +41,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!BeaverFever)
+        if (!GameObject.Find("GameManager").GetComponent<Ability>().BeaverFever)
         {
             Destroy(gameObject);
         }
