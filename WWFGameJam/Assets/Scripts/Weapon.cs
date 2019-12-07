@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     private Transform ShootPoint;
 
     [SerializeField]
-    private float firingSpeed = 1f;
+    private float firingSpeed = 0.75f;
 
     private float lastShotDelay = 0f;
 
