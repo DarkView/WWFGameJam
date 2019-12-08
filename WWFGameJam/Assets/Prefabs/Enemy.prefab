@@ -111,7 +111,6 @@ MonoBehaviour:
   Speed: 6
   WalkForward: 1
   StoleStick: 0
-  health: 20
 --- !u!54 &4641148181025605866
 Rigidbody:
   m_ObjectHideFlags: 0

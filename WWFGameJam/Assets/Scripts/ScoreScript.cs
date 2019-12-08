@@ -1,6 +1,5 @@
-﻿using System;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class ScoreScript : MonoBehaviour
     private int Highscore;
 
     [SerializeField]
-    private Text score;
+    private TMP_Text score;
 
     private void Start()
     {

@@ -70,7 +70,8 @@ public class EnemyMover : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
             }
             gotHit = true;
-            currentSpeed *= 2;
+            GameObject.Find("Treffer").GetComponent<AudioSource>().pitch = Random.Range(0.6f, 0.9f);
+            GameObject.Find("Treffer").GetComponent<AudioSource>().Play();
             gameObject.GetComponentInChildren<Animator>().SetBool("SpatOn", true);
         } 
         else if (other.CompareTag("CloseWarning"))
