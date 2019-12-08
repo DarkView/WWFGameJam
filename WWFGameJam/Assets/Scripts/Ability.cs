@@ -13,6 +13,7 @@ public class Ability : MonoBehaviour
     private float cooldownTime;
     public float MaxProjectileDistance;
     public bool BeaverFever;
+    private int abilitiesUsed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Ability : MonoBehaviour
         cooldownTime = 30f;
         MaxProjectileDistance = 20f;
         BeaverFever = false;
+        abilitiesUsed = PlayerPrefs.GetInt("AbilitiesUsedKey", 0);
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class Ability : MonoBehaviour
     {
         StartCoroutine(AbilityActive());
         GameObject.Find("Nagen").GetComponent<AudioSource>().Play();
+        PlayerPrefs.SetInt("AbilitiesUsedKey",abilitiesUsed++);
     }
 
     IEnumerator AbilityActive()
