@@ -25,6 +25,7 @@ public class ScoreScript : MonoBehaviour
             Highscore = Score;
             PlayerPrefs.SetInt("HighScoreKey", Highscore);
         }
+        PlayerPrefs.SetInt("ScoreKey", Score);
 
         if (Score > 0 && Score % 100 == 0)
         {
