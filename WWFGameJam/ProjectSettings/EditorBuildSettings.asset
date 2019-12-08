@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DefeatScreen.unity
     guid: 7598eb9067b02b345aeda1013334ed5a
+  - enabled: 1
+    path: Assets/Scenes/HighScoreScene.unity
+    guid: 758ccaed51bcd314aa68c4768555f94b
   m_configObjects: {}
