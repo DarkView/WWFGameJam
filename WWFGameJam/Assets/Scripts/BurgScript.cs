@@ -17,12 +17,15 @@ public class BurgScript : MonoBehaviour
     [SerializeField] private GameObject deathAnim;
     private float delay;
 
+    private GameObject[] knack;
+
     // Start is called before the first frame update
     void Start()
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyMover>();
         enemy.WalkForward = true;
         Health = 100;
+        knack = GameObject.FindGameObjectsWithTag("Knack");
     }
 
     // Update is called once per frame
@@ -62,6 +65,7 @@ public class BurgScript : MonoBehaviour
         switch (Health)
         {
             case 0:
+                StartCoroutine(DamStoleSound(8));
                 stage3.SetActive(false);
                 GameObject.Find("biber").GetComponent<Renderer>().enabled = false;
                 deathAnim.SetActive(true);
@@ -70,10 +74,15 @@ public class BurgScript : MonoBehaviour
 
             case 25:
                 stage2.SetActive(false);
+                StartCoroutine(DamStoleSound(6));
                 break;
 
             case 50: 
                 stage1.SetActive(false);
+                StartCoroutine(DamStoleSound(4));
+                break;
+            case 75:
+                StartCoroutine(DamStoleSound(2));
                 break;
             default:
                 break;
@@ -118,8 +127,20 @@ public class BurgScript : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
+        GameObject.Find("Platsch").GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadSceneAsync("DefeatScreen");
+    }
+
+    IEnumerator DamStoleSound(int timer)
+    {
+        while (timer > 0)
+        {
+            knack[Random.Range(0, knack.Length)].GetComponent<AudioSource>().Play();
+            timer--;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
     
 

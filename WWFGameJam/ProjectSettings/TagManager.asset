@@ -12,6 +12,7 @@ TagManager:
   - CloseWarning
   - FarWarning
   - WarnManager
+  - Knack
   layers:
   - Default
   - TransparentFX
