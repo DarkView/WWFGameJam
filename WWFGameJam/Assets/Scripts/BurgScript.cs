@@ -65,7 +65,7 @@ public class BurgScript : MonoBehaviour
         switch (Health)
         {
             case 0:
-                StartCoroutine(DamStoleSound(8));
+                StartCoroutine(DamStoleSound(3));
                 stage3.SetActive(false);
                 GameObject.Find("biber").GetComponent<Renderer>().enabled = false;
                 deathAnim.SetActive(true);
@@ -74,12 +74,12 @@ public class BurgScript : MonoBehaviour
 
             case 25:
                 stage2.SetActive(false);
-                StartCoroutine(DamStoleSound(6));
+                StartCoroutine(DamStoleSound(4));
                 break;
 
             case 50: 
                 stage1.SetActive(false);
-                StartCoroutine(DamStoleSound(4));
+                StartCoroutine(DamStoleSound(3));
                 break;
             case 75:
                 StartCoroutine(DamStoleSound(2));
