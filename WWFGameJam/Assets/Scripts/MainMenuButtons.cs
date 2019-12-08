@@ -16,7 +16,7 @@ public class MainMenuButtons : MonoBehaviour
     {
         gamesPlayed = PlayerPrefs.GetInt("GamesPlayedKey", 0);
         background = UnityEngine.Random.Range(1, 100);
-        if (background < 90)
+        if (background > 90)
         {
             spucke.SetActive(true);
             ohneSpucke.SetActive(false);
