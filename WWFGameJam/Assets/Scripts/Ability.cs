@@ -47,7 +47,8 @@ public class Ability : MonoBehaviour
     {
         StartCoroutine(AbilityActive());
         GameObject.Find("Nagen").GetComponent<AudioSource>().Play();
-        PlayerPrefs.SetInt("AbilitiesUsedKey",abilitiesUsed++);
+        abilitiesUsed++;
+        PlayerPrefs.SetInt("AbilitiesUsedKey",abilitiesUsed);
     }
 
     IEnumerator AbilityActive()

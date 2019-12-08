@@ -32,7 +32,8 @@ public class MainMenuButtons : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadSceneAsync("GameScene");
-        PlayerPrefs.SetInt("GamesPlayedKey",gamesPlayed++);
+        gamesPlayed++;
+        PlayerPrefs.SetInt("GamesPlayedKey",gamesPlayed);
     }
 
     public void HighscoreButton()

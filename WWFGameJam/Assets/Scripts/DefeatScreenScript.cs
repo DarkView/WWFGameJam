@@ -27,7 +27,8 @@ public class DefeatScreenScript : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadSceneAsync("GameScene");
-        PlayerPrefs.SetInt("GamesPlayedKey", gamesPlayed++);
+        gamesPlayed++;
+        PlayerPrefs.SetInt("GamesPlayedKey", gamesPlayed);
     }
 
     public void MainMenu()

@@ -69,13 +69,15 @@ public class EnemyMover : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
                 StoleStick = false;
                 gameObject.GetComponentInChildren<Animator>().SetBool("StoleStick", false);
-                PlayerPrefs.SetInt("KillWithStickKey",killWithStick++);
+                killWithStick++;
+                PlayerPrefs.SetInt("KillWithStickKey",killWithStick);
             }
             else
             {
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
                 GameObject.Find("GameManager").GetComponent<ScoreScript>().EnemyHit(5);
-                PlayerPrefs.SetInt("KillWithoutStickKey", killWithoutStick++);
+                killWithoutStick++;
+                PlayerPrefs.SetInt("KillWithoutStickKey", killWithoutStick);
             }
             gotHit = true;
             GameObject.Find("Treffer").GetComponent<AudioSource>().pitch = Random.Range(0.6f, 0.9f);
