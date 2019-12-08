@@ -28,4 +28,14 @@ public class HighScoreMenuScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
+
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("HighScoreKey",0);
+        PlayerPrefs.SetInt("GamesPlayedKey",0);
+        PlayerPrefs.SetInt("AbilitiesUsedKey",0);
+        PlayerPrefs.SetInt("KillWithoutStickKey",0);
+        PlayerPrefs.SetInt("KillWithStickKey",0);
+
+    }
 }
